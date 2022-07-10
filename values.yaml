@@ -13,18 +13,18 @@ podLabels:
 
 containerName: playcontainer
 
-resources:
-  requests:
-    cpu: 0.5
-    memory: 256Mi
-  limits:
-    cpu: 1
-    memory: 512Mi
+resources: {}
+  # requests:
+  #   cpu: 0.5
+  #   memory: 256Mi
+  # limits:
+  #   cpu: 1
+  #   memory: 512Mi
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-serviceType: NodePort
+serviceType: clusterIP
 tolerations:
   - key: "owner"
     value: "chandu"
