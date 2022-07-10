@@ -24,7 +24,7 @@ resources: {}
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-serviceType: clusterIP
+serviceType: ClusterIP
 tolerations:
   - key: "owner"
     value: "chandu"
