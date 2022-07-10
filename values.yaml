@@ -1,0 +1,31 @@
+
+replicaCount: 2
+
+image:
+  repository: 647651877147.dkr.ecr.us-west-1.amazonaws.com/playimage
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+podLabels:
+  generator: helm
+  owner: chandu
+
+containerName: playcontainer
+
+resources:
+  requests:
+    cpu: 0.5
+    memory: 256Mi
+  limits:
+    cpu: 1
+    memory: 512Mi
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceType: NodePort
+tolerations:
+  - key: "owner"
+    value: "chandu"
+    effect: "NoSchedule"

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    {{- include "c-nginx-helm.selectorLabels" . | nindent 4 }}
+    {{- with .Values.podLabels }}
+    {{ toYaml . | nindent 4 }}
+    {{- end }}
+  name: {{ include "c-nginx-helm.fullname" . }}
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  type: {{ .Values.serviceType }}
+  selector:
+    {{- include "c-nginx-helm.selectorLabels" . | nindent 4 }}
+    {{- with .Values.podLabels }}
+    {{ toYaml . | nindent 4 }}
+    {{- end }}
